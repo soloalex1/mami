@@ -1,45 +1,37 @@
-int tAtual = 0;
-int vel = 10;
-float tNew = 1.0 / 60.0;
+float tAtual = 0.0;
+float vel = 10.0;
+float tInc = 1 / 60.0;
+
 
 void setup() {
   size(600, 600);
-  //frameRate(1);
+  //frameRate(1); // sem a alteração na taxa de quadros, conseguimos mudar a posição em tempo real
   
 }
 
 void draw() {
   background(255);
-  int dist = MRU(vel, tAtual);
+  float dist = MRU(vel, tAtual);
   fill(255, 195, 255);
-  //ellipse(dist + 10, 10, 10, 10);
-  mostraCarro(dist + 20, 30);
+  ellipse(dist + 10, 10, 10, 10); // desenha a elipse com a chamada de MRU()
   mostraMundo();
   println("Distância Percorrida: ", dist);
   println("Velocidade: ", vel);
   println("Tempo Atual: ", tAtual);
   println();
-  tAtual += tNew;
+  tAtual += tInc;
 }
 
-int MRU(int v, int t) {
-  int d = v * t;
+// função de movimentação do corpo
+float MRU(float v, float t) {
+  float d = v * t;
   return d;
 }
 
+// exibe a grade do plano de fundo
 void mostraMundo() {
   for (int i = 0; i < 12; i++) {
     line(i * 50, 0, i * 50, 600);
     line(0, i * 50, 600, i * 50);
   }
-}
-
-void mostraCarro(int x, int y){
-  rectMode(CENTER);
-  fill(255, 120, 45);
-  rect(x, y, 40, 20);
-  ellipseMode(CENTER);
-  fill(120, 255, 45);
-  ellipse(x + 10, y + 10, 10, 10);
-  ellipse(x - 10, y + 10, 10, 10);
 }
