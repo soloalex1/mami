@@ -1,6 +1,6 @@
 PImage stone, stone2;
 int position;
-int x = 0; // define a coluna de pixels atual
+int atual = 0; // define a coluna de pixels atual
 int col1, col2, col3, col4;
 
 void setup() {
@@ -25,12 +25,12 @@ void toRight() {
 
   // laços da coluna 0
   for (int i = 0; i < height; i++) {
-    position = (i * width) + x; 
+    position = (i * width) + atual; 
     pixels[position] = stone2.pixels[position];
   }
 
-  if (x < col1) {
-    x++;
+  if (atual < col1) {
+    atual++;
   }
 
   // laços da coluna 1
@@ -76,5 +76,5 @@ void toRight() {
   updatePixels();
 }
 
-boolean isShown(PImage img) {
-}
+//boolean isShown(PImage img) {
+//}
