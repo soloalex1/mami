@@ -1,0 +1,52 @@
+float r = 100;
+float ang = 320;
+float spin;
+
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(0);
+  norwaySpiral();
+}
+
+void norwaySpiral() {
+  translate((width / 2), (height / 2));
+  pushMatrix();
+  rotate(spin);
+  for(int i = 0; i < 3000; i++){
+    float t = radians(i);
+    
+    
+  }
+}
+
+
+void espiral() {
+  pushMatrix();
+  noStroke();
+  rotate(gira);
+  for (int i = 0; i < 3000; i+=1) {
+    float t = radians(i);
+    x = corX(100, 0.25, t);
+    y = corY(100, 0.25, t);
+    fill(#4E8FE3);
+    ellipse(x*0.7, y*0.7, 5, 5);
+    if (maior < t) {
+      maior = t;
+    }
+  }
+  gira -=0.05;
+  popMatrix();
+}
+
+
+float corX(float raio, float ang, float t) {
+  return ang*t*raio*cos(t);
+}
+
+float corY(float raio, float ang, float t) {
+  return ang*t*raio*sin(t);
+}
